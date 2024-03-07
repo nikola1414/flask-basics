@@ -84,4 +84,17 @@ def create_app(test_config=None):
             dal.put_question(id,q)
             return "OK",200            
      
+    # @app.route('/login', methods=['POST'])
+    # def login():
+    #     info = json.loads(request.data)
+    #     username = info.get('username')
+    #     password = info.get('password') 
+    #     user = User.objects(name=username,
+    #                         password=password).first()
+    #     if user:
+    #         login_user(user)
+    #         return jsonify(user.to_json())
+    #     else:
+    #         return jsonify({"status": 401,
+    #                         "reason": "Username or Password Error"})
     return app
