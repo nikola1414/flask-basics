@@ -19,3 +19,15 @@ def add_question(question):
     question = pd.DataFrame(question, index=[questions.index.max() + 1])
     questions = pd.concat([questions, question], axis=0, ignore_index=False)
     questions.to_csv("data/questions.csv")
+
+def delete_question(id):
+    questions = pd.read_csv("data/questions.csv", header=0, index_col=0)
+    df=pd.DataFrame(questions)
+    df.drop(id)
+    return df
+
+def put_question(id,q):
+    questions = pd.read_csv("data/questions.csv", header=0, index_col=0)
+    df=pd.DataFrame(questions)
+    q=df.iloc(id)
+    return df
